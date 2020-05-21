@@ -1,6 +1,7 @@
 const { succeed, fail, repair, get } = require("./enhancer.js");
 // test away!
 const item = { name: "tes1", durability: 50, enhancement: 16 };
+
 describe("here ", () => {
   describe("repair()", () => {
     it("should repair and restore the durability to 100", () => {
@@ -13,6 +14,10 @@ describe("here ", () => {
 
     it("fail() should return an objec modified according to the rules", () => {
       expect(fail(item).durability).toBe(40);
+    });
+
+    it("get(), returns a new item with the name property modified", () => {
+      expect(get(item).name).toBe("[+16] tes1");
     });
   });
 });
